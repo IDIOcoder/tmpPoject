@@ -15,7 +15,7 @@ import lombok.Setter;
 public class Diary {
     @Id @GeneratedValue
     @Column(name = "diary", updatable = false)
-    private int writeNum;
+    private long writeNum;
     @Column(name = "write_date", nullable = false)
     private String writeDate;
     @Column(name = "title", nullable = false)
@@ -23,7 +23,7 @@ public class Diary {
     private String text;
 
     @Builder
-    public Diary(int writeNum, String writeDate, String title, String text){
+    public Diary(long writeNum, String writeDate, String title, String text){
         this.writeNum = writeNum;
         this.writeDate = writeDate;
         this.title = title;
