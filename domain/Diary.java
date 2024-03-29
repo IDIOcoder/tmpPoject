@@ -31,4 +31,9 @@ public class Diary {
         this.text = text;
     }
 
+    public void update(String title, String text){
+        this.title = title;
+        this.text = text;
+    }
+
 }
