@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 public class Diary {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "diary", updatable = false)
-    private long writeNum;
+    @Column(name = "id", updatable = false)
+    private Long id;
     @Column(name = "write_date", nullable = false)
     private LocalDateTime writeDate;
     @Column(name = "title", nullable = false)
@@ -24,11 +24,11 @@ public class Diary {
     private String text;
 
     @Builder
-    public Diary(long writeNum, LocalDateTime writeDate, String title, String text){
-        this.writeNum = writeNum;
-        this.writeDate = writeDate;
+    public Diary(Long id, String title, String text, LocalDateTime writeDate){
+        this.id = id;
         this.title = title;
         this.text = text;
+        this.writeDate = writeDate;
     }
 
     public void update(String title, String text){

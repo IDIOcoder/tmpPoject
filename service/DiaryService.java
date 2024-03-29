@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class DiaryService {
-    private DiaryRepository diaryRepository;
+    private final DiaryRepository diaryRepository;
 
     // 기록 추가
     public Diary save(AddDiaryRequest request) {
@@ -24,19 +24,19 @@ public class DiaryService {
     public List<Diary> findAll() {return diaryRepository.findAll();}
 
     // 하나의 기록에 대한 조회
-    public Diary findById(long id) {
+    public Diary findById(Long id) {
         return diaryRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("not found: " + id));
     }
 
     // 삭제
-    public void delete(long id){
+    public void delete(Long id){
         diaryRepository.deleteById(id);
     }
 
     // 수정
     @Transactional
-    public Diary update(long id, UpdateDiaryRequest request){
+    public Diary update(Long id, UpdateDiaryRequest request){
         Diary diary = diaryRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("not found: " + id));
 

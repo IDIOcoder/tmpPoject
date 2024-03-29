@@ -12,7 +12,7 @@ public class DiaryViewResponse {
     private String text;
 
     public DiaryViewResponse(Diary diary) {
-        this.writeNum = diary.getWriteNum();
+        this.writeNum = diary.getId();
         this.title = diary.getTitle();
         this.text = diary.getText();
     }

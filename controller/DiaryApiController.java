@@ -37,7 +37,7 @@ public class DiaryApiController {
     }
 
     @GetMapping(value = "/api/diaries/{id}")
-    public ResponseEntity<DiaryResponse> findDiary(@PathVariable long id) {
+    public ResponseEntity<DiaryResponse> findDiary(@PathVariable Long id) {
         Diary diary = diaryService.findById(id);
 
         return ResponseEntity.ok()
@@ -45,7 +45,7 @@ public class DiaryApiController {
     }
 
     @DeleteMapping(value = "/api/diaries/{id}")
-    public ResponseEntity<Void> deleteArticle(@PathVariable long id) {
+    public ResponseEntity<Void> deleteArticle(@PathVariable Long id) {
         diaryService.delete(id);
 
         return ResponseEntity.ok()
@@ -53,7 +53,7 @@ public class DiaryApiController {
     }
 
     @PutMapping(value = "/api/diaries/{id}")
-    public ResponseEntity<Diary> updateDiary(@PathVariable long id,
+    public ResponseEntity<Diary> updateDiary(@PathVariable Long id,
                                                @RequestBody UpdateDiaryRequest request) {
         Diary updateDiary = diaryService.update(id, request);
 

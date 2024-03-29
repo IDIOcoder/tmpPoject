@@ -21,7 +21,7 @@ public class DiaryViewController {
     private final DiaryService diaryService;
 
     @GetMapping("/diaries")
-    public String getDiary(Model model) {
+    public String getDiaries(Model model) {
         List<DiaryListResponse> diaries = diaryService.findAll()
                 .stream()
                 .map(DiaryListResponse::new)
@@ -34,7 +34,7 @@ public class DiaryViewController {
     @GetMapping("/diaries/{id}")
     public String getArticle(@PathVariable Long id, Model model) {
         Diary diary = diaryService.findById(id);
-        model.addAttribute("diary", new DiaryResponse(diary));
+        model.addAttribute("diary", new DiaryViewResponse(diary));
 
         return "diary";
     }
